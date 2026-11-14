@@ -1,3 +1,9 @@
+//***********************************************************
+// Name: Tom Phan
+// Title: CardList.h
+// Description: Simple playing card game
+// Date: 11/13/2026
+//***********************************************************
 #ifndef CARDLIST_H
 #define CARDLIST_H
 #include <iostream>

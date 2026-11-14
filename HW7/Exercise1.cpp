@@ -1,3 +1,9 @@
+//***********************************************************
+// Name: Tom Phan
+// Title: Exercise1.cpp
+// Description: Simple playing card game
+// Date: 11/13/2026
+//***********************************************************
 #include <iostream>
 #include "CardList.h"
 using namespace std;
@@ -37,27 +43,52 @@ int main(){
                 break;
             case 'B':
                 cout<<"B [Change]: Type 2 Positions to swap " <<endl;
+                int pos1, pos2;
+                cin >> pos1 >> pos2;
+                myCards.change(pos1, pos2);
+                cout << myCards.getHistory() << endl;
                 break;
             case 'C':
                 cout<<"C [Reverse]:" <<endl;
+                myCards.reverse();
+                cout << myCards.getHistory() << endl;
                 break;
             case 'D':
                 cout<<"D [Move]: " <<endl;
+                myCards.move();
+                cout << myCards.getHistory() << endl;
                 break;
             case 'E':
-                cout<<"E [Search]: Type a value to search " <<endl;
+                cout<< "E [Search]: Type a value to search " << endl;
+                int target;
+                cin >> target;
+                int idx;
+                idx = myCards.search(target);
+                if (idx == -1) cout << target << " is not found" << endl;
+                else if (idx == 0) cout << target << " is 1st item" << endl;
+                else if (idx == 1) cout << target << " is 2nd item" << endl;
+                else if (idx == 2) cout << target << " is 3rd item" << endl;
+                else cout << target << " is " << idx+1 << "th item" << endl;
                 break;
             case 'F':
                 cout<<"F [Bubble Sort]: " <<endl;
+                myCards.bubbleSort(false);
+                cout << myCards.getHistory() << endl;
                 break;
             case 'G':
                 cout<<"G [Selection Sort]: " <<endl;
+                myCards.selectionSort(false);
+                cout << myCards.getHistory() << endl;
                 break;
             case 'H' :
                 cout<<"H [Bubble Sort (Debug)]: " <<endl;
+                myCards.bubbleSort(true);
+                cout << myCards.getHistory() << endl;
                 break;
             case 'I':
                 cout<<"I [Selection Sort (Debug)]: " <<endl; 
+                myCards.selectionSort(true);
+                cout << myCards.getHistory() << endl;
                 break;
             case '?' :
                 printMenu();
