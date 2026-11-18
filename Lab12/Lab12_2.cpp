@@ -8,11 +8,13 @@
 using namespace std;
 int maxFrequencyElement(int arr[], int size) {
     int max=0, count=0, prev_count=0;
-    for (int i=0; i < size-1; i++) {
-        for (int j=i+1; j < size; j++)
+    for (int i=0; i < size; i++) {
+        for (int j=0; j < size; j++)
             if (arr[i] == arr[j]) count++;
-        if (count > prev_count) max = i;
-        prev_count = count;
+        if (count > prev_count) { 
+            max = i;
+            prev_count = count;
+        }
         count = 0;
     }
     return arr[max];
